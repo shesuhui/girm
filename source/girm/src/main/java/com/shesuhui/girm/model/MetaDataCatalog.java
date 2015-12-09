@@ -2,7 +2,7 @@ package com.shesuhui.girm.model;
 
 import java.util.Date;
 
-public class ResourceDataCatalog {
+public class MetaDataCatalog {
     private Integer id;
 
     private Integer creator;
@@ -17,19 +17,21 @@ public class ResourceDataCatalog {
 
     private Integer providerOrg;
 
+    private Integer consumeOrg;
+
     private Date publishDate;
 
     private String summary;
 
     private String remark;
 
-    private Integer consumeOrg;
+    private Integer dataType;
 
-    private String keyword;
+    private String valueRange;
 
-    private Integer permissionLevel;
+    private Integer resourceOf;
 
-    private Integer busiOf;
+    private Integer shareCount;
 
     public Integer getId() {
         return id;
@@ -87,6 +89,14 @@ public class ResourceDataCatalog {
         this.providerOrg = providerOrg;
     }
 
+    public Integer getConsumeOrg() {
+        return consumeOrg;
+    }
+
+    public void setConsumeOrg(Integer consumeOrg) {
+        this.consumeOrg = consumeOrg;
+    }
+
     public Date getPublishDate() {
         return publishDate;
     }
@@ -111,35 +121,35 @@ public class ResourceDataCatalog {
         this.remark = remark == null ? null : remark.trim();
     }
 
-    public Integer getConsumeOrg() {
-        return consumeOrg;
+    public Integer getDataType() {
+        return dataType;
     }
 
-    public void setConsumeOrg(Integer consumeOrg) {
-        this.consumeOrg = consumeOrg;
+    public void setDataType(Integer dataType) {
+        this.dataType = dataType;
     }
 
-    public String getKeyword() {
-        return keyword;
+    public String getValueRange() {
+        return valueRange;
     }
 
-    public void setKeyword(String keyword) {
-        this.keyword = keyword == null ? null : keyword.trim();
+    public void setValueRange(String valueRange) {
+        this.valueRange = valueRange == null ? null : valueRange.trim();
     }
 
-    public Integer getPermissionLevel() {
-        return permissionLevel;
+    public Integer getResourceOf() {
+        return resourceOf;
     }
 
-    public void setPermissionLevel(Integer permissionLevel) {
-        this.permissionLevel = permissionLevel;
+    public void setResourceOf(Integer resourceOf) {
+        this.resourceOf = resourceOf;
     }
 
-    public Integer getBusiOf() {
-        return busiOf;
+    public Integer getShareCount() {
+        return shareCount;
     }
 
-    public void setBusiOf(Integer busiOf) {
-        this.busiOf = busiOf;
+    public void setShareCount(Integer shareCount) {
+        this.shareCount = shareCount;
     }
 }

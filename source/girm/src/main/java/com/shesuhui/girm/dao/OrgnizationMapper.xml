@@ -1,0 +1,500 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shesuhui.girm.dao.OrgnizationMapper">
+  <resultMap id="BaseResultMap" type="com.shesuhui.girm.model.Orgnization">
+    <id column="id" jdbcType="DECIMAL" property="id" />
+    <result column="creator" jdbcType="DECIMAL" property="creator" />
+    <result column="createtime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="code" jdbcType="VARCHAR" property="code" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="name_cn" jdbcType="VARCHAR" property="nameCn" />
+    <result column="parent" jdbcType="DECIMAL" property="parent" />
+    <result column="level" jdbcType="DECIMAL" property="level" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, creator, createtime, code, name, name_cn, parent, level
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from orgnization
+    where id = #{id,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from orgnization
+    where id = #{id,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.shesuhui.girm.model.Orgnization">
+    insert into orgnization (id, creator, createtime, 
+      code, name, name_cn, 
+      parent, level)
+    values (#{id,jdbcType=DECIMAL}, #{creator,jdbcType=DECIMAL}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{code,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{nameCn,jdbcType=VARCHAR}, 
+      #{parent,jdbcType=DECIMAL}, #{level,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.shesuhui.girm.model.Orgnization">
+    insert into orgnization
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="creator != null">
+        creator,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="code != null">
+        code,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="nameCn != null">
+        name_cn,
+      </if>
+      <if test="parent != null">
+        parent,
+      </if>
+      <if test="level != null">
+        level,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=DECIMAL},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=DECIMAL},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="code != null">
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="nameCn != null">
+        #{nameCn,jdbcType=VARCHAR},
+      </if>
+      <if test="parent != null">
+        #{parent,jdbcType=DECIMAL},
+      </if>
+      <if test="level != null">
+        #{level,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shesuhui.girm.model.Orgnization">
+    update orgnization
+    <set>
+      <if test="creator != null">
+        creator = #{creator,jdbcType=DECIMAL},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="code != null">
+        code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="nameCn != null">
+        name_cn = #{nameCn,jdbcType=VARCHAR},
+      </if>
+      <if test="parent != null">
+        parent = #{parent,jdbcType=DECIMAL},
+      </if>
+      <if test="level != null">
+        level = #{level,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where id = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shesuhui.girm.model.Orgnization">
+    update orgnization
+    set creator = #{creator,jdbcType=DECIMAL},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      code = #{code,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      name_cn = #{nameCn,jdbcType=VARCHAR},
+      parent = #{parent,jdbcType=DECIMAL},
+      level = #{level,jdbcType=DECIMAL}
+    where id = #{id,jdbcType=DECIMAL}
+  </update>
+  <resultMap id="BaseResultMap" type="com.shesuhui.girm.model.Orgnization">
+    <id column="id" jdbcType="DECIMAL" property="id" />
+    <result column="creator" jdbcType="DECIMAL" property="creator" />
+    <result column="createtime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="code" jdbcType="VARCHAR" property="code" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="name_cn" jdbcType="VARCHAR" property="nameCn" />
+    <result column="parent" jdbcType="DECIMAL" property="parent" />
+    <result column="level" jdbcType="DECIMAL" property="level" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, creator, createtime, code, name, name_cn, parent, level
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from orgnization
+    where id = #{id,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from orgnization
+    where id = #{id,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.shesuhui.girm.model.Orgnization">
+    insert into orgnization (id, creator, createtime, 
+      code, name, name_cn, 
+      parent, level)
+    values (#{id,jdbcType=DECIMAL}, #{creator,jdbcType=DECIMAL}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{code,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{nameCn,jdbcType=VARCHAR}, 
+      #{parent,jdbcType=DECIMAL}, #{level,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.shesuhui.girm.model.Orgnization">
+    insert into orgnization
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="creator != null">
+        creator,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="code != null">
+        code,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="nameCn != null">
+        name_cn,
+      </if>
+      <if test="parent != null">
+        parent,
+      </if>
+      <if test="level != null">
+        level,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=DECIMAL},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=DECIMAL},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="code != null">
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="nameCn != null">
+        #{nameCn,jdbcType=VARCHAR},
+      </if>
+      <if test="parent != null">
+        #{parent,jdbcType=DECIMAL},
+      </if>
+      <if test="level != null">
+        #{level,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shesuhui.girm.model.Orgnization">
+    update orgnization
+    <set>
+      <if test="creator != null">
+        creator = #{creator,jdbcType=DECIMAL},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="code != null">
+        code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="nameCn != null">
+        name_cn = #{nameCn,jdbcType=VARCHAR},
+      </if>
+      <if test="parent != null">
+        parent = #{parent,jdbcType=DECIMAL},
+      </if>
+      <if test="level != null">
+        level = #{level,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where id = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shesuhui.girm.model.Orgnization">
+    update orgnization
+    set creator = #{creator,jdbcType=DECIMAL},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      code = #{code,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      name_cn = #{nameCn,jdbcType=VARCHAR},
+      parent = #{parent,jdbcType=DECIMAL},
+      level = #{level,jdbcType=DECIMAL}
+    where id = #{id,jdbcType=DECIMAL}
+  </update>
+  <resultMap id="BaseResultMap" type="com.shesuhui.girm.model.Orgnization">
+    <id column="id" jdbcType="DECIMAL" property="id" />
+    <result column="creator" jdbcType="DECIMAL" property="creator" />
+    <result column="createtime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="code" jdbcType="VARCHAR" property="code" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="name_cn" jdbcType="VARCHAR" property="nameCn" />
+    <result column="parent" jdbcType="DECIMAL" property="parent" />
+    <result column="level" jdbcType="DECIMAL" property="level" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, creator, createtime, code, name, name_cn, parent, level
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from orgnization
+    where id = #{id,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from orgnization
+    where id = #{id,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.shesuhui.girm.model.Orgnization">
+    insert into orgnization (id, creator, createtime, 
+      code, name, name_cn, 
+      parent, level)
+    values (#{id,jdbcType=DECIMAL}, #{creator,jdbcType=DECIMAL}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{code,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{nameCn,jdbcType=VARCHAR}, 
+      #{parent,jdbcType=DECIMAL}, #{level,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.shesuhui.girm.model.Orgnization">
+    insert into orgnization
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="creator != null">
+        creator,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="code != null">
+        code,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="nameCn != null">
+        name_cn,
+      </if>
+      <if test="parent != null">
+        parent,
+      </if>
+      <if test="level != null">
+        level,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=DECIMAL},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=DECIMAL},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="code != null">
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="nameCn != null">
+        #{nameCn,jdbcType=VARCHAR},
+      </if>
+      <if test="parent != null">
+        #{parent,jdbcType=DECIMAL},
+      </if>
+      <if test="level != null">
+        #{level,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shesuhui.girm.model.Orgnization">
+    update orgnization
+    <set>
+      <if test="creator != null">
+        creator = #{creator,jdbcType=DECIMAL},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="code != null">
+        code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="nameCn != null">
+        name_cn = #{nameCn,jdbcType=VARCHAR},
+      </if>
+      <if test="parent != null">
+        parent = #{parent,jdbcType=DECIMAL},
+      </if>
+      <if test="level != null">
+        level = #{level,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where id = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shesuhui.girm.model.Orgnization">
+    update orgnization
+    set creator = #{creator,jdbcType=DECIMAL},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      code = #{code,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      name_cn = #{nameCn,jdbcType=VARCHAR},
+      parent = #{parent,jdbcType=DECIMAL},
+      level = #{level,jdbcType=DECIMAL}
+    where id = #{id,jdbcType=DECIMAL}
+  </update>
+  <resultMap id="BaseResultMap" type="com.shesuhui.girm.model.Orgnization">
+    <id column="id" jdbcType="DECIMAL" property="id" />
+    <result column="creator" jdbcType="DECIMAL" property="creator" />
+    <result column="createtime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="code" jdbcType="VARCHAR" property="code" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="name_cn" jdbcType="VARCHAR" property="nameCn" />
+    <result column="parent" jdbcType="DECIMAL" property="parent" />
+    <result column="level" jdbcType="DECIMAL" property="level" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, creator, createtime, code, name, name_cn, parent, level
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from orgnization
+    where id = #{id,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from orgnization
+    where id = #{id,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.shesuhui.girm.model.Orgnization">
+    insert into orgnization (id, creator, createtime, 
+      code, name, name_cn, 
+      parent, level)
+    values (#{id,jdbcType=DECIMAL}, #{creator,jdbcType=DECIMAL}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{code,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{nameCn,jdbcType=VARCHAR}, 
+      #{parent,jdbcType=DECIMAL}, #{level,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.shesuhui.girm.model.Orgnization">
+    insert into orgnization
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="creator != null">
+        creator,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="code != null">
+        code,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="nameCn != null">
+        name_cn,
+      </if>
+      <if test="parent != null">
+        parent,
+      </if>
+      <if test="level != null">
+        level,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=DECIMAL},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=DECIMAL},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="code != null">
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="nameCn != null">
+        #{nameCn,jdbcType=VARCHAR},
+      </if>
+      <if test="parent != null">
+        #{parent,jdbcType=DECIMAL},
+      </if>
+      <if test="level != null">
+        #{level,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shesuhui.girm.model.Orgnization">
+    update orgnization
+    <set>
+      <if test="creator != null">
+        creator = #{creator,jdbcType=DECIMAL},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="code != null">
+        code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="nameCn != null">
+        name_cn = #{nameCn,jdbcType=VARCHAR},
+      </if>
+      <if test="parent != null">
+        parent = #{parent,jdbcType=DECIMAL},
+      </if>
+      <if test="level != null">
+        level = #{level,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where id = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shesuhui.girm.model.Orgnization">
+    update orgnization
+    set creator = #{creator,jdbcType=DECIMAL},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      code = #{code,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      name_cn = #{nameCn,jdbcType=VARCHAR},
+      parent = #{parent,jdbcType=DECIMAL},
+      level = #{level,jdbcType=DECIMAL}
+    where id = #{id,jdbcType=DECIMAL}
+  </update>
+</mapper>

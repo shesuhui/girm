@@ -1,0 +1,836 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shesuhui.girm.dao.MetaDataCatalogMapper">
+  <resultMap id="BaseResultMap" type="com.shesuhui.girm.model.MetaDataCatalog">
+    <id column="id" jdbcType="DECIMAL" property="id" />
+    <result column="creator" jdbcType="DECIMAL" property="creator" />
+    <result column="createtime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="code" jdbcType="VARCHAR" property="code" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="name_cn" jdbcType="VARCHAR" property="nameCn" />
+    <result column="provider_org" jdbcType="DECIMAL" property="providerOrg" />
+    <result column="consume_org" jdbcType="DECIMAL" property="consumeOrg" />
+    <result column="publish_date" jdbcType="DATE" property="publishDate" />
+    <result column="summary" jdbcType="VARCHAR" property="summary" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="data_type" jdbcType="DECIMAL" property="dataType" />
+    <result column="value_range" jdbcType="VARCHAR" property="valueRange" />
+    <result column="resource_of" jdbcType="DECIMAL" property="resourceOf" />
+    <result column="share_count" jdbcType="DECIMAL" property="shareCount" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, creator, createtime, code, name, name_cn, provider_org, consume_org, publish_date, 
+    summary, remark, data_type, value_range, resource_of, share_count
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from metadatacatalog
+    where id = #{id,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from metadatacatalog
+    where id = #{id,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.shesuhui.girm.model.MetaDataCatalog">
+    insert into metadatacatalog (id, creator, createtime, 
+      code, name, name_cn, 
+      provider_org, consume_org, publish_date, 
+      summary, remark, data_type, 
+      value_range, resource_of, share_count
+      )
+    values (#{id,jdbcType=DECIMAL}, #{creator,jdbcType=DECIMAL}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{code,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{nameCn,jdbcType=VARCHAR}, 
+      #{providerOrg,jdbcType=DECIMAL}, #{consumeOrg,jdbcType=DECIMAL}, #{publishDate,jdbcType=DATE}, 
+      #{summary,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{dataType,jdbcType=DECIMAL}, 
+      #{valueRange,jdbcType=VARCHAR}, #{resourceOf,jdbcType=DECIMAL}, #{shareCount,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.shesuhui.girm.model.MetaDataCatalog">
+    insert into metadatacatalog
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="creator != null">
+        creator,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="code != null">
+        code,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="nameCn != null">
+        name_cn,
+      </if>
+      <if test="providerOrg != null">
+        provider_org,
+      </if>
+      <if test="consumeOrg != null">
+        consume_org,
+      </if>
+      <if test="publishDate != null">
+        publish_date,
+      </if>
+      <if test="summary != null">
+        summary,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="dataType != null">
+        data_type,
+      </if>
+      <if test="valueRange != null">
+        value_range,
+      </if>
+      <if test="resourceOf != null">
+        resource_of,
+      </if>
+      <if test="shareCount != null">
+        share_count,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=DECIMAL},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=DECIMAL},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="code != null">
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="nameCn != null">
+        #{nameCn,jdbcType=VARCHAR},
+      </if>
+      <if test="providerOrg != null">
+        #{providerOrg,jdbcType=DECIMAL},
+      </if>
+      <if test="consumeOrg != null">
+        #{consumeOrg,jdbcType=DECIMAL},
+      </if>
+      <if test="publishDate != null">
+        #{publishDate,jdbcType=DATE},
+      </if>
+      <if test="summary != null">
+        #{summary,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="dataType != null">
+        #{dataType,jdbcType=DECIMAL},
+      </if>
+      <if test="valueRange != null">
+        #{valueRange,jdbcType=VARCHAR},
+      </if>
+      <if test="resourceOf != null">
+        #{resourceOf,jdbcType=DECIMAL},
+      </if>
+      <if test="shareCount != null">
+        #{shareCount,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shesuhui.girm.model.MetaDataCatalog">
+    update metadatacatalog
+    <set>
+      <if test="creator != null">
+        creator = #{creator,jdbcType=DECIMAL},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="code != null">
+        code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="nameCn != null">
+        name_cn = #{nameCn,jdbcType=VARCHAR},
+      </if>
+      <if test="providerOrg != null">
+        provider_org = #{providerOrg,jdbcType=DECIMAL},
+      </if>
+      <if test="consumeOrg != null">
+        consume_org = #{consumeOrg,jdbcType=DECIMAL},
+      </if>
+      <if test="publishDate != null">
+        publish_date = #{publishDate,jdbcType=DATE},
+      </if>
+      <if test="summary != null">
+        summary = #{summary,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="dataType != null">
+        data_type = #{dataType,jdbcType=DECIMAL},
+      </if>
+      <if test="valueRange != null">
+        value_range = #{valueRange,jdbcType=VARCHAR},
+      </if>
+      <if test="resourceOf != null">
+        resource_of = #{resourceOf,jdbcType=DECIMAL},
+      </if>
+      <if test="shareCount != null">
+        share_count = #{shareCount,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where id = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shesuhui.girm.model.MetaDataCatalog">
+    update metadatacatalog
+    set creator = #{creator,jdbcType=DECIMAL},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      code = #{code,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      name_cn = #{nameCn,jdbcType=VARCHAR},
+      provider_org = #{providerOrg,jdbcType=DECIMAL},
+      consume_org = #{consumeOrg,jdbcType=DECIMAL},
+      publish_date = #{publishDate,jdbcType=DATE},
+      summary = #{summary,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      data_type = #{dataType,jdbcType=DECIMAL},
+      value_range = #{valueRange,jdbcType=VARCHAR},
+      resource_of = #{resourceOf,jdbcType=DECIMAL},
+      share_count = #{shareCount,jdbcType=DECIMAL}
+    where id = #{id,jdbcType=DECIMAL}
+  </update>
+  <resultMap id="BaseResultMap" type="com.shesuhui.girm.model.MetaDataCatalog">
+    <id column="id" jdbcType="DECIMAL" property="id" />
+    <result column="creator" jdbcType="DECIMAL" property="creator" />
+    <result column="createtime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="code" jdbcType="VARCHAR" property="code" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="name_cn" jdbcType="VARCHAR" property="nameCn" />
+    <result column="provider_org" jdbcType="DECIMAL" property="providerOrg" />
+    <result column="consume_org" jdbcType="DECIMAL" property="consumeOrg" />
+    <result column="publish_date" jdbcType="DATE" property="publishDate" />
+    <result column="summary" jdbcType="VARCHAR" property="summary" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="data_type" jdbcType="DECIMAL" property="dataType" />
+    <result column="value_range" jdbcType="VARCHAR" property="valueRange" />
+    <result column="resource_of" jdbcType="DECIMAL" property="resourceOf" />
+    <result column="share_count" jdbcType="DECIMAL" property="shareCount" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, creator, createtime, code, name, name_cn, provider_org, consume_org, publish_date, 
+    summary, remark, data_type, value_range, resource_of, share_count
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from metadatacatalog
+    where id = #{id,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from metadatacatalog
+    where id = #{id,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.shesuhui.girm.model.MetaDataCatalog">
+    insert into metadatacatalog (id, creator, createtime, 
+      code, name, name_cn, 
+      provider_org, consume_org, publish_date, 
+      summary, remark, data_type, 
+      value_range, resource_of, share_count
+      )
+    values (#{id,jdbcType=DECIMAL}, #{creator,jdbcType=DECIMAL}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{code,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{nameCn,jdbcType=VARCHAR}, 
+      #{providerOrg,jdbcType=DECIMAL}, #{consumeOrg,jdbcType=DECIMAL}, #{publishDate,jdbcType=DATE}, 
+      #{summary,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{dataType,jdbcType=DECIMAL}, 
+      #{valueRange,jdbcType=VARCHAR}, #{resourceOf,jdbcType=DECIMAL}, #{shareCount,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.shesuhui.girm.model.MetaDataCatalog">
+    insert into metadatacatalog
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="creator != null">
+        creator,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="code != null">
+        code,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="nameCn != null">
+        name_cn,
+      </if>
+      <if test="providerOrg != null">
+        provider_org,
+      </if>
+      <if test="consumeOrg != null">
+        consume_org,
+      </if>
+      <if test="publishDate != null">
+        publish_date,
+      </if>
+      <if test="summary != null">
+        summary,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="dataType != null">
+        data_type,
+      </if>
+      <if test="valueRange != null">
+        value_range,
+      </if>
+      <if test="resourceOf != null">
+        resource_of,
+      </if>
+      <if test="shareCount != null">
+        share_count,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=DECIMAL},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=DECIMAL},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="code != null">
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="nameCn != null">
+        #{nameCn,jdbcType=VARCHAR},
+      </if>
+      <if test="providerOrg != null">
+        #{providerOrg,jdbcType=DECIMAL},
+      </if>
+      <if test="consumeOrg != null">
+        #{consumeOrg,jdbcType=DECIMAL},
+      </if>
+      <if test="publishDate != null">
+        #{publishDate,jdbcType=DATE},
+      </if>
+      <if test="summary != null">
+        #{summary,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="dataType != null">
+        #{dataType,jdbcType=DECIMAL},
+      </if>
+      <if test="valueRange != null">
+        #{valueRange,jdbcType=VARCHAR},
+      </if>
+      <if test="resourceOf != null">
+        #{resourceOf,jdbcType=DECIMAL},
+      </if>
+      <if test="shareCount != null">
+        #{shareCount,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shesuhui.girm.model.MetaDataCatalog">
+    update metadatacatalog
+    <set>
+      <if test="creator != null">
+        creator = #{creator,jdbcType=DECIMAL},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="code != null">
+        code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="nameCn != null">
+        name_cn = #{nameCn,jdbcType=VARCHAR},
+      </if>
+      <if test="providerOrg != null">
+        provider_org = #{providerOrg,jdbcType=DECIMAL},
+      </if>
+      <if test="consumeOrg != null">
+        consume_org = #{consumeOrg,jdbcType=DECIMAL},
+      </if>
+      <if test="publishDate != null">
+        publish_date = #{publishDate,jdbcType=DATE},
+      </if>
+      <if test="summary != null">
+        summary = #{summary,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="dataType != null">
+        data_type = #{dataType,jdbcType=DECIMAL},
+      </if>
+      <if test="valueRange != null">
+        value_range = #{valueRange,jdbcType=VARCHAR},
+      </if>
+      <if test="resourceOf != null">
+        resource_of = #{resourceOf,jdbcType=DECIMAL},
+      </if>
+      <if test="shareCount != null">
+        share_count = #{shareCount,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where id = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shesuhui.girm.model.MetaDataCatalog">
+    update metadatacatalog
+    set creator = #{creator,jdbcType=DECIMAL},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      code = #{code,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      name_cn = #{nameCn,jdbcType=VARCHAR},
+      provider_org = #{providerOrg,jdbcType=DECIMAL},
+      consume_org = #{consumeOrg,jdbcType=DECIMAL},
+      publish_date = #{publishDate,jdbcType=DATE},
+      summary = #{summary,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      data_type = #{dataType,jdbcType=DECIMAL},
+      value_range = #{valueRange,jdbcType=VARCHAR},
+      resource_of = #{resourceOf,jdbcType=DECIMAL},
+      share_count = #{shareCount,jdbcType=DECIMAL}
+    where id = #{id,jdbcType=DECIMAL}
+  </update>
+  <resultMap id="BaseResultMap" type="com.shesuhui.girm.model.MetaDataCatalog">
+    <id column="id" jdbcType="DECIMAL" property="id" />
+    <result column="creator" jdbcType="DECIMAL" property="creator" />
+    <result column="createtime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="code" jdbcType="VARCHAR" property="code" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="name_cn" jdbcType="VARCHAR" property="nameCn" />
+    <result column="provider_org" jdbcType="DECIMAL" property="providerOrg" />
+    <result column="consume_org" jdbcType="DECIMAL" property="consumeOrg" />
+    <result column="publish_date" jdbcType="DATE" property="publishDate" />
+    <result column="summary" jdbcType="VARCHAR" property="summary" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="data_type" jdbcType="DECIMAL" property="dataType" />
+    <result column="value_range" jdbcType="VARCHAR" property="valueRange" />
+    <result column="resource_of" jdbcType="DECIMAL" property="resourceOf" />
+    <result column="share_count" jdbcType="DECIMAL" property="shareCount" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, creator, createtime, code, name, name_cn, provider_org, consume_org, publish_date, 
+    summary, remark, data_type, value_range, resource_of, share_count
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from metadatacatalog
+    where id = #{id,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from metadatacatalog
+    where id = #{id,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.shesuhui.girm.model.MetaDataCatalog">
+    insert into metadatacatalog (id, creator, createtime, 
+      code, name, name_cn, 
+      provider_org, consume_org, publish_date, 
+      summary, remark, data_type, 
+      value_range, resource_of, share_count
+      )
+    values (#{id,jdbcType=DECIMAL}, #{creator,jdbcType=DECIMAL}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{code,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{nameCn,jdbcType=VARCHAR}, 
+      #{providerOrg,jdbcType=DECIMAL}, #{consumeOrg,jdbcType=DECIMAL}, #{publishDate,jdbcType=DATE}, 
+      #{summary,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{dataType,jdbcType=DECIMAL}, 
+      #{valueRange,jdbcType=VARCHAR}, #{resourceOf,jdbcType=DECIMAL}, #{shareCount,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.shesuhui.girm.model.MetaDataCatalog">
+    insert into metadatacatalog
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="creator != null">
+        creator,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="code != null">
+        code,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="nameCn != null">
+        name_cn,
+      </if>
+      <if test="providerOrg != null">
+        provider_org,
+      </if>
+      <if test="consumeOrg != null">
+        consume_org,
+      </if>
+      <if test="publishDate != null">
+        publish_date,
+      </if>
+      <if test="summary != null">
+        summary,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="dataType != null">
+        data_type,
+      </if>
+      <if test="valueRange != null">
+        value_range,
+      </if>
+      <if test="resourceOf != null">
+        resource_of,
+      </if>
+      <if test="shareCount != null">
+        share_count,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=DECIMAL},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=DECIMAL},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="code != null">
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="nameCn != null">
+        #{nameCn,jdbcType=VARCHAR},
+      </if>
+      <if test="providerOrg != null">
+        #{providerOrg,jdbcType=DECIMAL},
+      </if>
+      <if test="consumeOrg != null">
+        #{consumeOrg,jdbcType=DECIMAL},
+      </if>
+      <if test="publishDate != null">
+        #{publishDate,jdbcType=DATE},
+      </if>
+      <if test="summary != null">
+        #{summary,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="dataType != null">
+        #{dataType,jdbcType=DECIMAL},
+      </if>
+      <if test="valueRange != null">
+        #{valueRange,jdbcType=VARCHAR},
+      </if>
+      <if test="resourceOf != null">
+        #{resourceOf,jdbcType=DECIMAL},
+      </if>
+      <if test="shareCount != null">
+        #{shareCount,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shesuhui.girm.model.MetaDataCatalog">
+    update metadatacatalog
+    <set>
+      <if test="creator != null">
+        creator = #{creator,jdbcType=DECIMAL},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="code != null">
+        code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="nameCn != null">
+        name_cn = #{nameCn,jdbcType=VARCHAR},
+      </if>
+      <if test="providerOrg != null">
+        provider_org = #{providerOrg,jdbcType=DECIMAL},
+      </if>
+      <if test="consumeOrg != null">
+        consume_org = #{consumeOrg,jdbcType=DECIMAL},
+      </if>
+      <if test="publishDate != null">
+        publish_date = #{publishDate,jdbcType=DATE},
+      </if>
+      <if test="summary != null">
+        summary = #{summary,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="dataType != null">
+        data_type = #{dataType,jdbcType=DECIMAL},
+      </if>
+      <if test="valueRange != null">
+        value_range = #{valueRange,jdbcType=VARCHAR},
+      </if>
+      <if test="resourceOf != null">
+        resource_of = #{resourceOf,jdbcType=DECIMAL},
+      </if>
+      <if test="shareCount != null">
+        share_count = #{shareCount,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where id = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shesuhui.girm.model.MetaDataCatalog">
+    update metadatacatalog
+    set creator = #{creator,jdbcType=DECIMAL},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      code = #{code,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      name_cn = #{nameCn,jdbcType=VARCHAR},
+      provider_org = #{providerOrg,jdbcType=DECIMAL},
+      consume_org = #{consumeOrg,jdbcType=DECIMAL},
+      publish_date = #{publishDate,jdbcType=DATE},
+      summary = #{summary,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      data_type = #{dataType,jdbcType=DECIMAL},
+      value_range = #{valueRange,jdbcType=VARCHAR},
+      resource_of = #{resourceOf,jdbcType=DECIMAL},
+      share_count = #{shareCount,jdbcType=DECIMAL}
+    where id = #{id,jdbcType=DECIMAL}
+  </update>
+  <resultMap id="BaseResultMap" type="com.shesuhui.girm.model.MetaDataCatalog">
+    <id column="id" jdbcType="DECIMAL" property="id" />
+    <result column="creator" jdbcType="DECIMAL" property="creator" />
+    <result column="createtime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="code" jdbcType="VARCHAR" property="code" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="name_cn" jdbcType="VARCHAR" property="nameCn" />
+    <result column="provider_org" jdbcType="DECIMAL" property="providerOrg" />
+    <result column="consume_org" jdbcType="DECIMAL" property="consumeOrg" />
+    <result column="publish_date" jdbcType="DATE" property="publishDate" />
+    <result column="summary" jdbcType="VARCHAR" property="summary" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="data_type" jdbcType="DECIMAL" property="dataType" />
+    <result column="value_range" jdbcType="VARCHAR" property="valueRange" />
+    <result column="resource_of" jdbcType="DECIMAL" property="resourceOf" />
+    <result column="share_count" jdbcType="DECIMAL" property="shareCount" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, creator, createtime, code, name, name_cn, provider_org, consume_org, publish_date, 
+    summary, remark, data_type, value_range, resource_of, share_count
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from metadatacatalog
+    where id = #{id,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from metadatacatalog
+    where id = #{id,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.shesuhui.girm.model.MetaDataCatalog">
+    insert into metadatacatalog (id, creator, createtime, 
+      code, name, name_cn, 
+      provider_org, consume_org, publish_date, 
+      summary, remark, data_type, 
+      value_range, resource_of, share_count
+      )
+    values (#{id,jdbcType=DECIMAL}, #{creator,jdbcType=DECIMAL}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{code,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{nameCn,jdbcType=VARCHAR}, 
+      #{providerOrg,jdbcType=DECIMAL}, #{consumeOrg,jdbcType=DECIMAL}, #{publishDate,jdbcType=DATE}, 
+      #{summary,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{dataType,jdbcType=DECIMAL}, 
+      #{valueRange,jdbcType=VARCHAR}, #{resourceOf,jdbcType=DECIMAL}, #{shareCount,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.shesuhui.girm.model.MetaDataCatalog">
+    insert into metadatacatalog
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="creator != null">
+        creator,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="code != null">
+        code,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="nameCn != null">
+        name_cn,
+      </if>
+      <if test="providerOrg != null">
+        provider_org,
+      </if>
+      <if test="consumeOrg != null">
+        consume_org,
+      </if>
+      <if test="publishDate != null">
+        publish_date,
+      </if>
+      <if test="summary != null">
+        summary,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="dataType != null">
+        data_type,
+      </if>
+      <if test="valueRange != null">
+        value_range,
+      </if>
+      <if test="resourceOf != null">
+        resource_of,
+      </if>
+      <if test="shareCount != null">
+        share_count,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=DECIMAL},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=DECIMAL},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="code != null">
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="nameCn != null">
+        #{nameCn,jdbcType=VARCHAR},
+      </if>
+      <if test="providerOrg != null">
+        #{providerOrg,jdbcType=DECIMAL},
+      </if>
+      <if test="consumeOrg != null">
+        #{consumeOrg,jdbcType=DECIMAL},
+      </if>
+      <if test="publishDate != null">
+        #{publishDate,jdbcType=DATE},
+      </if>
+      <if test="summary != null">
+        #{summary,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="dataType != null">
+        #{dataType,jdbcType=DECIMAL},
+      </if>
+      <if test="valueRange != null">
+        #{valueRange,jdbcType=VARCHAR},
+      </if>
+      <if test="resourceOf != null">
+        #{resourceOf,jdbcType=DECIMAL},
+      </if>
+      <if test="shareCount != null">
+        #{shareCount,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shesuhui.girm.model.MetaDataCatalog">
+    update metadatacatalog
+    <set>
+      <if test="creator != null">
+        creator = #{creator,jdbcType=DECIMAL},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="code != null">
+        code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="nameCn != null">
+        name_cn = #{nameCn,jdbcType=VARCHAR},
+      </if>
+      <if test="providerOrg != null">
+        provider_org = #{providerOrg,jdbcType=DECIMAL},
+      </if>
+      <if test="consumeOrg != null">
+        consume_org = #{consumeOrg,jdbcType=DECIMAL},
+      </if>
+      <if test="publishDate != null">
+        publish_date = #{publishDate,jdbcType=DATE},
+      </if>
+      <if test="summary != null">
+        summary = #{summary,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="dataType != null">
+        data_type = #{dataType,jdbcType=DECIMAL},
+      </if>
+      <if test="valueRange != null">
+        value_range = #{valueRange,jdbcType=VARCHAR},
+      </if>
+      <if test="resourceOf != null">
+        resource_of = #{resourceOf,jdbcType=DECIMAL},
+      </if>
+      <if test="shareCount != null">
+        share_count = #{shareCount,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where id = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shesuhui.girm.model.MetaDataCatalog">
+    update metadatacatalog
+    set creator = #{creator,jdbcType=DECIMAL},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      code = #{code,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      name_cn = #{nameCn,jdbcType=VARCHAR},
+      provider_org = #{providerOrg,jdbcType=DECIMAL},
+      consume_org = #{consumeOrg,jdbcType=DECIMAL},
+      publish_date = #{publishDate,jdbcType=DATE},
+      summary = #{summary,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      data_type = #{dataType,jdbcType=DECIMAL},
+      value_range = #{valueRange,jdbcType=VARCHAR},
+      resource_of = #{resourceOf,jdbcType=DECIMAL},
+      share_count = #{shareCount,jdbcType=DECIMAL}
+    where id = #{id,jdbcType=DECIMAL}
+  </update>
+</mapper>

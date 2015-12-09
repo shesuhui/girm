@@ -17,18 +17,18 @@
                         password="root"/>
 
         <javaModelGenerator targetPackage="com.shesuhui.girm.model"
-                            targetProject="\src\main\java">
+                            targetProject="F:\girm\source\girm\src\main\java">
             <property name="enableSubPackages" value="true"/>
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
 
         <sqlMapGenerator targetPackage="com.shesuhui.girm.dao"
-                         targetProject="\src\main\java">
+                         targetProject="F:\girm\source\girm\src\main\java">
             <property name="enableSubPackages" value="true"/>
         </sqlMapGenerator>
 
         <javaClientGenerator targetPackage="com.shesuhui.girm.dao"
-                             targetProject="\src\main\java" type="XMLMAPPER">
+                             targetProject="F:\girm\source\girm\src\main\java" type="XMLMAPPER">
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
 
@@ -38,6 +38,27 @@
                selectByExampleQueryId="false"/>-->
 
         <table tableName="businessdatacatalog" domainObjectName="BusinessDataCatalog"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <!--<columnRenamingRule searchString="^D_"
+                                replaceString=""/>-->
+        </table>
+        <table tableName="MetaDataCatalog" domainObjectName="MetaDataCatalog"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <!--<columnRenamingRule searchString="^D_"
+                                replaceString=""/>-->
+        </table>
+        <table tableName="Orgnization" domainObjectName="Orgnization"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <!--<columnRenamingRule searchString="^D_"
+                                replaceString=""/>-->
+        </table>
+        <table tableName="ResourceDataCatalog" domainObjectName="ResourceDataCatalog"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">
