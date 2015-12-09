@@ -2,57 +2,15 @@ package com.shesuhui.girm.model;
 
 import java.util.Date;
 
-public class DataCatalog {
+public class DataCatalog extends BusinessEntity {
 
-	protected Integer id;
-	protected Integer creator;
-	protected Date createtime;
-	protected String code;
-	protected String name;
-	protected String nameCn;
+	private Integer providerOrg;
+	private Date publishDate;
+	private String summary;
+	private String remark;
 
 	public DataCatalog() {
 		super();
-	}
-
-	public Integer getId() {
-	    return id;
-	}
-
-	public void setId(Integer id) {
-	    this.id = id;
-	}
-
-	public Integer getCreator() {
-	    return creator;
-	}
-
-	public void setCreator(Integer creator) {
-	    this.creator = creator;
-	}
-
-	public Date getCreatetime() {
-	    return createtime;
-	}
-
-	public void setCreatetime(Date createtime) {
-	    this.createtime = createtime;
-	}
-
-	public String getCode() {
-	    return code;
-	}
-
-	public void setCode(String code) {
-	    this.code = code == null ? null : code.trim();
-	}
-
-	public String getName() {
-	    return name;
-	}
-
-	public void setName(String name) {
-	    this.name = name == null ? null : name.trim();
 	}
 
 	public String getNameCn() {
@@ -61,6 +19,38 @@ public class DataCatalog {
 
 	public void setNameCn(String nameCn) {
 	    this.nameCn = nameCn == null ? null : nameCn.trim();
+	}
+
+	public Integer getProviderOrg() {
+	    return providerOrg;
+	}
+
+	public void setProviderOrg(Integer providerOrg) {
+	    this.providerOrg = providerOrg;
+	}
+
+	public Date getPublishDate() {
+	    return publishDate;
+	}
+
+	public void setPublishDate(Date publishDate) {
+	    this.publishDate = publishDate;
+	}
+
+	public String getSummary() {
+	    return summary;
+	}
+
+	public void setSummary(String summary) {
+	    this.summary = summary == null ? null : summary.trim();
+	}
+
+	public String getRemark() {
+	    return remark;
+	}
+
+	public void setRemark(String remark) {
+	    this.remark = remark == null ? null : remark.trim();
 	}
 
 }

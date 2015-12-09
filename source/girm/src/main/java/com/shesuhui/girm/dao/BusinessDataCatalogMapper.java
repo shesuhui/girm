@@ -1,17 +1,17 @@
 package com.shesuhui.girm.dao;
 
-import com.shesuhui.girm.model.DataCatalog;
+import com.shesuhui.girm.model.BaseEntity;
 
 public interface BusinessDataCatalogMapper {
     int deleteByPrimaryKey(Integer id);
 
-    int insert(DataCatalog record);
+    int insert(BaseEntity record);
 
-    int insertSelective(DataCatalog record);
+    int insertSelective(BaseEntity record);
 
-    DataCatalog selectByPrimaryKey(Integer id);
+    BaseEntity selectByPrimaryKey(Integer id);
 
-    int updateByPrimaryKeySelective(DataCatalog record);
+    int updateByPrimaryKeySelective(BaseEntity record);
 
-    int updateByPrimaryKey(DataCatalog record);
+    int updateByPrimaryKey(BaseEntity record);
 }
