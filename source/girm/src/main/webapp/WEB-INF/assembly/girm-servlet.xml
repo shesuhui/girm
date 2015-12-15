@@ -92,5 +92,7 @@
 	<bean id="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver"
 		p:defaultEncoding="utf-8" />
+		
+	<import resource="girm-locale.xml"/>	
 
 </beans>

@@ -2,16 +2,12 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:set var="ctx" value="${pageContext.request.contextPath}" />
 <link rel="shortcut icon" type="image/x-icon" href="${ctx}/favicon.ico" />
-<!-- Bootstrap -->
-<link href="${ctx}/css/bootstrap.min.css" rel="stylesheet"
-	media="screen" />
-<link
-	href="${ctx}/javascript/thirdparty/bootstrapValid/bootstrapValidator.min.css"
-	rel="stylesheet" media="screen" />
-<link rel="StyleSheet" href="${ctx}/css/girm-template.css" type="text/css"
-	media="screen" />
-<script type="text/javascript" data-main="${ctx}/javascript/" src="${pageContext.request.contextPath }/javascript/thirdparty/requirejs/require.min.js"  defer async ></script>
-<script type="text/javascript" src="${ctx}/javascript/thirdparty/app/require-config.js"></script>
+
+<script>
+	var ROOTPATH ="${ctx}";
+</script>
+<script type="text/javascript" data-main="${ctx}/javascript/" src="${pageContext.request.contextPath }/javascript/lib/requirejs/require.js" ></script>
+<script type="text/javascript" src="${ctx}/javascript/app/require-config.js"></script>
 
 <script type="text/javascript">
 	require(['domReady!','jquery'], function(doc,$) {
@@ -63,10 +59,4 @@
 		};
 		
 	});
-	
-	
-	
-	
-	
-	
 </script>

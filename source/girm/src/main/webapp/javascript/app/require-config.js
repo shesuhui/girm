@@ -1,11 +1,11 @@
 require.config({
 	paths: {
-		'domReady': 'thirdparty/requirejs/domReady',
-		'jquery': 'thirdparty/jquery/jquery-2.1.1',
-		'bootstrapValidator': 'thirdparty/bootstrapValid/bootstrapValidator',
-		'zh_CN': 'thirdparty/bootstrapValid/zh_CN',
-		'jquery.simplePagination' : 'thirdparty/simplePg/jquery.simplePagination',
-		'bootstrap-treeview': 'thirdparty/treeview/bootstrap-treeview',
+		'domReady': 'lib/requirejs/domReady',
+		'jquery': 'lib/jquery/jquery-2.1.1',
+		'bootstrapValidator': 'lib/bootstrapValid/bootstrapValidator',
+		'zh_CN': 'lib/bootstrapValid/zh_CN',
+		'jquery.simplePagination' : 'lib/simplePg/jquery.simplePagination',
+		'bootstrap-treeview': 'lib/treeview/bootstrap-treeview',
 	},
 	shim: {
 		'jquery.ui' : {

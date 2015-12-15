@@ -9,7 +9,7 @@
 </div>
 <a class="backtop" id="backtop" href="javascript:;"><span></span></a>
 <script>
-	$(function() {
+require(['domReady!','jquery'], function(doc,$) {
 		$("[data-toggle='tooltip']").tooltip();
 		$("[data-toggle='popover']").popover();
 		$(window).scroll(
@@ -29,5 +29,5 @@
 				scrollTop : "0px"
 			}, 200);
 		});
-	});
+});
 </script>
