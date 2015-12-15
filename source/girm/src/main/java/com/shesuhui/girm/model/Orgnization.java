@@ -15,7 +15,7 @@ public class Orgnization {
 
     private String nameCn;
 
-    private Orgnization parent;
+    private Integer parent;
 
     private Integer level;
 
@@ -67,11 +67,11 @@ public class Orgnization {
         this.nameCn = nameCn == null ? null : nameCn.trim();
     }
 
-    public Orgnization getParent() {
+    public Integer getParent() {
         return parent;
     }
 
-    public void setParent(Orgnization parent) {
+    public void setParent(Integer parent) {
         this.parent = parent;
     }
 

@@ -1,17 +1,37 @@
 package com.shesuhui.girm.dao;
 
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+
 import com.shesuhui.girm.model.User;
 
 public interface UserMapper {
-    int deleteByPrimaryKey(Integer id);
+	String getPassword(@Param(value = "id") String id);
 
-    int insert(User record);
+	String updatePassword(@Param(value = "id") String id, @Param(value = "password") String password);
 
-    int insertSelective(User record);
+	void addUser(User user);
 
-    User selectByPrimaryKey(Integer id);
+	void updateUser(User User);
 
-    int updateByPrimaryKeySelective(User record);
+	void updatePersonal(User User);
 
-    int updateByPrimaryKey(User record);
+	void deleteUserById(@Param("id") int paramInt1, @Param("modifierId") int paramInt2);
+
+	User getUserById(@Param(value = "userId") Integer userId);
+
+	User getUserByName(@Param(value = "userName") String userName);
+
+	User getUserByRoom(@Param(value = "roomId") String roomId);
+
+	List<User> findUsers(int start, int limit);
+
+	User getUserWihtRoomRole(@Param(value = "userId") String userId);
+
+	User getUserByLoginName(@Param(value = "loginName") String loginName);
+
+	User getUserByPassword(@Param(value = "loginName") String loginName, @Param(value = "password") String password);
+
+	int getTotalCount();
 }

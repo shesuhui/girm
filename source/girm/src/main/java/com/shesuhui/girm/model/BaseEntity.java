@@ -14,7 +14,7 @@ import java.util.Date;
 public class BaseEntity implements Serializable {
 
 	protected Integer id;
-	protected User creator;
+	protected Integer creator;
 	protected Date createtime;
 
 	public Integer getId() {
@@ -25,11 +25,11 @@ public class BaseEntity implements Serializable {
 		this.id = id;
 	}
 
-	public User getCreator() {
+	public Integer getCreator() {
 		return creator;
 	}
 
-	public void setCreator(User creator) {
+	public void setCreator(Integer creator) {
 		this.creator = creator;
 	}
 
