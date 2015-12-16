@@ -8,7 +8,7 @@
 	</div>
 </div>
 <a class="backtop" id="backtop" href="javascript:;"><span></span></a>
-<script>
+<!-- script>
 require(['domReady!','jquery'], function(doc,$) {
 		$("[data-toggle='tooltip']").tooltip();
 		$("[data-toggle='popover']").popover();
@@ -30,4 +30,4 @@ require(['domReady!','jquery'], function(doc,$) {
 			}, 200);
 		});
 });
-</script>
+</script-->

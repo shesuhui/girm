@@ -6,8 +6,12 @@ require.config({
 		'zh_CN': 'lib/bootstrapValid/zh_CN',
 		'jquery.simplePagination' : 'lib/simplePg/jquery.simplePagination',
 		'bootstrap-treeview': 'lib/treeview/bootstrap-treeview',
+		'setup':'app/setup'
 	},
 	shim: {
+		'bootstrap-treeview':{
+			deps:['jquery']
+		},
 		'jquery.ui' : {
 			deps : ['jquery']
 		},
